@@ -3,9 +3,10 @@
 }
 
 html {
-    background-color: white;
+    background-color: hsl(0, 0%, 98%);
     font-family: 'Epilogue', sans-serif;
-    color: hsl(0, 0%, 41%);
+    color:  hsl(0, 0%, 41%);
+	--almost-black: hsl(0, 0%, 8%);
 }
 
 body {
@@ -16,56 +17,54 @@ body {
 nav {
     display: flex;
     align-items: center;
-    width: 100vw;
-    box-sizing: border-box;
-    padding: 0px 50px 0px 50px;
-    max-width: 100%;
+	font-size: 14px;
+	margin-top: 21px;
 }
 
 .logo {
-    width: 150px;
-    height: 100px;
+    width: 146px;
     display: flex;
-    align-items: center;
+	position: relative;
+	top: 3px;
+	margin-left: 1px;
 }
 
 .menu {
     display: flex;
-    gap: 15px;
+    gap: 40px;
+    flex-grow: 1;
 }
 
 .menu__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 7px;
 }
 
 .buttons {
     display: flex;
     justify-content: end;
-    gap: 30px;
-    flex-grow: 1;
+    gap: 17px;
 }
 
 button {
     all: unset;
-    border-radius: 15px;
+    border-radius: 14px;
     display: flex;
     align-items: flex-end;
 }
 
 .buttons__login, .buttons__register{
-    padding: 13px 24px 13px 24px;
+    padding: 12px 21px 12px 21px;
 }
 
 .buttons__login {
-    border: none;
+    border: 2px solid rgba(128, 128, 128, 0);
 }
 
 .buttons__register {
     border: 2px solid grey;
-    
 }
 
 img {
@@ -73,14 +72,15 @@ img {
 }
 
 main {
+	margin-top: 67px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0px 170px 0px 170px;
+	justify-items: center;
 }
 
 .info {
     display: grid;
-    grid-template-rows: 2fr 1.3fr 1fr 1.3fr;
+	padding-left: 84px;
+    grid-template-rows: 267px 133px 105px 138px;
 }
 
 .info__title {
@@ -89,15 +89,17 @@ main {
 }
 
 h1 {
-    color: black;
+    color: var(--almost-black);
     font-size: 80px;
+	letter-spacing: -1px;
+	margin-left: -1px;
     margin: 0;
 }
 
 .info__text {
     max-width: 480px;
     font-size: 18px;
-    line-height: 1.5em;
+    line-height: 1.6em;
     display: flex;
     align-items: flex-end;
 }
@@ -108,19 +110,124 @@ h1 {
 }
 
 .button__learn-more {
-    background-color: black;
+    background-color: var(--almost-black);;
     color: white;
-    padding: 15px 24px 15px 24px;
+	font-size: 18px;
+    padding: 20px 30px 19px 32px;
+	border-radius: 16px;
 }
 
 .sponsors {
+	align-self: end;
+	position: relative;
+	top: 6px;
     display: flex;
-    align-items: flex-end;
-    gap: 30px;
+    align-items: center;
+    gap: 40px;
 }
 
-.right-section {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.sponsors img {
+	width: auto;
+}
+
+@media (min-width: 800px) {
+	body {
+		margin: 0 36px 0px 40px;
+		overflow: hidden;
+	}
+	main {
+		grid-template-columns: 1fr 1fr;
+	}
+	.right-section img:last-child {
+		display: none;
+		height: 280px;
+	}
+	.buttons div {
+		display: none;
+	}
+	.right-section img {
+		position: relative;
+		left: 11px;
+	}
+	.right-section {
+	}
+}
+
+@media (max-width: 800px) {
+	body {
+		overflow: hidden;
+	}
+	nav {
+		margin-left: 18px;
+		margin-right: 18px;
+	}
+	.menu {
+		display: none;
+	}
+	.buttons {
+		width: 100%;
+	}
+	.buttons button {
+		display: none;
+	}
+	main {
+		margin-top: 25px;
+	}
+	.right-section {
+		order: 1;
+		justify-self: start;
+	}
+	.right-section > *:first-child {
+		display: none;
+	}
+	.right-section > *:last-child {
+		background-image: url("images/image-hero-mobile.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 280px;
+		width: 100vw;
+	}
+	.info {
+		margin: 32px 18px 0px 18px;
+		order: 2;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		padding: 0px;
+		justify-items: center;
+		align-items: center;
+	}
+	h1 {
+		font-size: 37px;
+	}
+	h1 br {
+		display: none;
+	}
+	.info__text {
+		text-align: center;
+		font-size: 16px;
+		max-width: 340px;
+	}
+
+	.button__learn-more {
+		font-size: 16px;
+		padding: 16px 24px 16px 24px;
+		position: relative;
+		top: 10px;	
+	}
+
+	.sponsors {
+		gap: 0px;
+		position: static;
+	}
+	.sponsors img {
+		transform: scale(0.75);
+	}
+
+	.sponsors img:first-child {
+		margin-left: -13px;
+	}
+
+	.sponsors img:last-child {
+		margin-right: -10px;
+	}
 }
